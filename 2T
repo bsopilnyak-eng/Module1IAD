@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import pearsonr
+
+data = pd.DataFrame({
+    'Ліпопротеїни': [1.2, 1.5, 1.7, 1.8, 2.0, 2.2, 2.5, 2.7, 3.0, 3.2],
+    'Гемоглобін': [12.1, 12.5, 12.7, 12.9, 13.0, 13.3, 13.6, 13.8, 14.0, 14.3]
+})
+
+corr, p_value = pearsonr(data['Ліпопротеїни'], data['Гемоглобін'])
+
+plt.scatter(data['Ліпопротеїни'], data['Гемоглобін'])
+plt.xlabel("Ліпопротеїни")
+plt.ylabel("Гемоглобін")
+plt.title("Залежність між ліпопротеїнами та гемоглобіном")
+plt.show()
+
+print("Коефіцієнт кореляції:", corr)
+print("p-value:", p_value)
